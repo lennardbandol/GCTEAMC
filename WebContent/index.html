@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0111)https://dit-bb.blackboard.com/bbcswebdav/pid-569580-dt-content-rid-2242567_1/courses/CMPU3038/login%282%29.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>To Do List</title>
+<style type="text/css">
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle
+{ display: none !important; }</style></head>
+
+<body>
+
+            <form action="FrontController" method="post">
+                <table>
+                    <tbody><tr>
+                        <td> Task Name  : </td><td> <input name="taskName" size="15" type="text"> </td> 
+                    </tr>
+                    <tr>
+                        <td> Task Weight  : </td><td> <input name="weight" size="15" type="text"> </td> 
+                    </tr>
+                    <tr>
+                        <td> Task Date  : </td><td> <input name="date" size="15" type="text"> </td> 
+                    </tr>
+                </tbody></table>
+                
+                <input type="hidden" name="action" value="AddTask">
+                <input type="submit" value="ok">
+            </form>
+            <form action="FrontController" method="post">
+                <input type="hidden" name="action" value="ListTasks">
+                <input type="submit" value="Show Tasks">
+            </form>
+
+
+</body></html>
