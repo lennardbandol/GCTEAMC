@@ -8,5 +8,9 @@ public class Controller {
 	public Controller(){
 		
 	}
+	
+	void login(){
+		
+	}
 
 }
