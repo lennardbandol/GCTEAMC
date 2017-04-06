@@ -18,5 +18,9 @@ public class Controller {
 			e.printStackTrace();
 			return false;
 		}
-	}
+	}//End login
+	
+	public boolean logout(){
+		return true;
+	}//End logout
 }

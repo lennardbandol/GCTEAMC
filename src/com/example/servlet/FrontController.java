@@ -57,12 +57,12 @@ public class FrontController extends HttpServlet {
 		
 		switch (action) {
 		case "login":
-			//forwardToJsp = mainUi.login(request, response);
+			forwardToJsp = mainUi.login(request, response);
 			break;
 			
 		case "logout":
 			System.out.println("it works");
-			//forwardToJsp = mainUi.logout(request, response);
+			forwardToJsp = mainUi.logout(request, response);
 			break;
 		
 		default: 

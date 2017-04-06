@@ -20,5 +20,15 @@ public class MainUI {
 		forwardToJsp = login(request, repsonse);
 		return forwardToJsp;
 	}
+	
+	public String logout(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";		
+		
+		controller.logout();
+		
+		forwardToJsp = login(request, repsonse);
+		return forwardToJsp;
+	}
 }
 
