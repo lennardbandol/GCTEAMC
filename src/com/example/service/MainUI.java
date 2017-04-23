@@ -17,7 +17,6 @@ public class MainUI {
 		
 		controller.login(uName, pWord);
 		
-		forwardToJsp = login(request, repsonse);
 		return forwardToJsp;
 	}
 	
@@ -27,7 +26,21 @@ public class MainUI {
 		
 		controller.logout();
 		
-		forwardToJsp = login(request, repsonse);
+		return forwardToJsp;
+	}
+	
+	public String register(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";	
+		String regUsername = request.getParameter("regUsername");
+		String regPassword = request.getParameter("regPassword");
+		String regConfirmPassword = request.getParameter("regConfirmPassword");
+		String registerEmail = request.getParameter("registerEmail");
+		String regDOB = request.getParameter("regDOB");
+		String regContactNumber = request.getParameter("regContactNumber");
+		
+		controller.register(regUsername, regPassword, regConfirmPassword, registerEmail, regDOB, regContactNumber);
+		forwardToJsp = "/homepage.html";
 		return forwardToJsp;
 	}
 }
