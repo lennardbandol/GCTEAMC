@@ -38,7 +38,7 @@ public class MainUI {
 		String registerEmail = request.getParameter("registerEmail");
 		String regDOB = request.getParameter("regDOB");
 		String regContactNumber = request.getParameter("regContactNumber");
-		
+		System.out.printf("regDOB: %s",regDOB);
 		controller.register(regUsername, regPassword, regConfirmPassword, registerEmail, regDOB, regContactNumber);
 		forwardToJsp = "/homepage.html";
 		return forwardToJsp;
