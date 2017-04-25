@@ -4,13 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.example.exceptions.DaoException;
 
 
 public class UserDao extends Dao {
 
-    public boolean login(String uName, String pWord) throws DaoException{
+    public boolean login(String username, String password) throws DaoException{
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -19,17 +18,30 @@ public class UserDao extends Dao {
         try {
             con = this.getConnection();
             
-            String query = "SELECT * FROM USERS";//change according to DB
+            String query = "SELECT userId, password FROM user WHERE userId = ?;";
             ps = con.prepareStatement(query);
-            
+            ps.setString(1, username);
+            System.out.println("works");
             rs = ps.executeQuery();
-            if (rs.getString("PASSWORD")/* change according to DB*/ == pWord) {
-            	//Password matches
-            	success = true;
+            
+            while (rs.next()) {
+                String pWord = rs.getString("password");
+                System.out.println(password);
+                System.out.println(pWord);
+                if (pWord.equals(password)) {
+                	//Password matches
+                	success = true;
+                	System.out.println("works match");
+                }
+                else
+                {
+                	System.out.println("works match fails");
+                }
+
             }
         } 
         catch (SQLException e) {
-            throw new DaoException("login " + e.getMessage());    
+            throw new DaoException("login: " + e.getMessage());    
         } 
         finally {
             try {
@@ -44,7 +56,7 @@ public class UserDao extends Dao {
                 }
             }//end try 
             catch (SQLException e) {
-                throw new DaoException("login" + e.getMessage());
+                throw new DaoException("login: " + e.getMessage());
             }//end catch
         }//end finally
         return success;
@@ -70,7 +82,7 @@ public class UserDao extends Dao {
             	success = true;
         } 
         catch (SQLException e) {
-            throw new DaoException("register " + e.getMessage());    
+            throw new DaoException("register: " + e.getMessage());    
         } 
         finally {
             try {
@@ -82,7 +94,7 @@ public class UserDao extends Dao {
                 }
             }//end try 
             catch (SQLException e) {
-                throw new DaoException("register" + e.getMessage());
+                throw new DaoException("register: " + e.getMessage());
             }//end catch
         }//end finally
         return success;

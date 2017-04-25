@@ -12,20 +12,18 @@ public class MainUI {
 	public String login(HttpServletRequest request, HttpServletResponse repsonse){
 		Controller controller = new Controller();
 		String forwardToJsp = "";		
-		String uName = request.getParameter("uName"); //change according to frontend
-		String pWord = request.getParameter("pWord"); //change according to frontend
-		
-		controller.login(uName, pWord);
-		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		controller.login(username, password);
+		forwardToJsp = "/homepage.html";
 		return forwardToJsp;
 	}
 	
 	public String logout(HttpServletRequest request, HttpServletResponse repsonse){
 		Controller controller = new Controller();
 		String forwardToJsp = "";		
-		
 		controller.logout();
-		
+		forwardToJsp = "/homepage.html";
 		return forwardToJsp;
 	}
 	

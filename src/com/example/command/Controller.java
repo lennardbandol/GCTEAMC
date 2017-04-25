@@ -7,14 +7,12 @@ public class Controller {
 	UserDao userdao = new UserDao();
 	
 	
-	public boolean login(String uName, String pWord){
+	public boolean login(String username, String password){
 		try {			
-			System.out.println("Try login");
-			userdao.login(uName, pWord);
+			userdao.login(username, password);
 			return true;
 		} 
 		catch (DaoException e) {
-			System.out.println("fails login");
 			e.printStackTrace();
 			return false;
 		}
@@ -26,12 +24,10 @@ public class Controller {
 	
 	public boolean register(String regUsername, String regPassword, String regConfirmPassword, String registerEmail, String regDOB, String regContactNumber){
 		try {			
-			System.out.println("Try register (controller)");
 			userdao.register(regUsername, regPassword, regConfirmPassword, registerEmail, regDOB, regContactNumber);
 			return true;
 		} 
 		catch (DaoException e) {
-			System.out.println("fails register (controller)");
 			e.printStackTrace();
 			return false;
 		}
