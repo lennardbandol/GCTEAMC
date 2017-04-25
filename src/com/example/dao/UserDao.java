@@ -49,4 +49,42 @@ public class UserDao extends Dao {
         }//end finally
         return success;
     }
+    
+    public boolean register(String regUsername, String regPassword, String regConfirmPassword, String registerEmail, String regDOB, String regContactNumber) throws DaoException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        //by default success full login is set to false 
+        boolean success = false;
+        try {
+            con = this.getConnection();
+            
+            String query = "INSERT INTO user (userId, password, name, birthday, gender, privilege) VALUES (?,?,?,?,'M','user');";
+            ps = con.prepareStatement(query);
+            ps.setString(1, regUsername);
+            ps.setString(2, regPassword);
+            ps.setString(3, regUsername);
+            ps.setString(4, regPassword);
+            
+            ps.executeUpdate();
+
+            	success = true;
+        } 
+        catch (SQLException e) {
+            throw new DaoException("register " + e.getMessage());    
+        } 
+        finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            }//end try 
+            catch (SQLException e) {
+                throw new DaoException("register" + e.getMessage());
+            }//end catch
+        }//end finally
+        return success;
+    }
 }//end UserDao

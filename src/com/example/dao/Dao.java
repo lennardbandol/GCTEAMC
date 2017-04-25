@@ -11,9 +11,9 @@ public class Dao {
     protected Connection getConnection() throws DaoException {
 
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/test";
-        String username = "";
-        String password = "";
+        String url = "jdbc:mysql://ec2-54-245-40-202.us-west-2.compute.amazonaws.com:3306/HBS";
+        String username = "remoteu";
+        String password = "GlobalClassroom_2017";
         Connection con = null;
         
         try {
