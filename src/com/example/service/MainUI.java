@@ -30,5 +30,29 @@ public class MainUI {
 		forwardToJsp = login(request, repsonse);
 		return forwardToJsp;
 	}
+	public String getRooms(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";		
+		int number = Integer.parseInt(request.getParameter("number"));
+		String type= request.getParameter("type");
+		boolean smoking;
+		if(request.getParameter("smoking")=="true")
+		{
+			smoking = true;
+		}
+		else
+		{
+			smoking = false;
+		}
+		
+		float priceMin = Float.parseFloat(request.getParameter("priceMin"));
+		float priceMax = Float.parseFloat(request.getParameter("priceMax"));
+		int noOfPeople= Integer.parseInt(request.getParameter("noOfPeople"));
+		
+		controller.getRoom(type, smoking, priceMin, priceMax, noOfPeople);
+		
+		forwardToJsp =getRoom(request, repsonse);
+		return forwardToJsp;
+	}
 }
 

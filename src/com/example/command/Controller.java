@@ -1,11 +1,15 @@
 package com.example.command;
 
+import java.util.ArrayList;
+
+import com.example.business.Room;
+import com.example.dao.RoomDao;
 import com.example.dao.UserDao;
 import com.example.exceptions.DaoException;
 public class Controller {
 	
 	UserDao userdao = new UserDao();
-	
+	RoomDao roomdao = new RoomDao();
 	
 	public boolean login(String uName, String pWord){
 		try {			
@@ -23,4 +27,18 @@ public class Controller {
 	public boolean logout(){
 		return true;
 	}//End logout
+	
+	public ArrayList<Room> getRoom(String type,boolean smoking, float priceMin,float priceMax, int noOfPeople)
+	{
+		try{
+			System.out.println("Try Search");
+			return roomdao.getRoom(type,smoking,priceMin,priceMax,noOfPeople);
+		}
+		catch(DaoException e)
+		{
+			System.out.println("Fail to search");
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
