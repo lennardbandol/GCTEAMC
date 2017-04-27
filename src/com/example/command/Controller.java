@@ -2,6 +2,9 @@ package com.example.command;
 
 import com.example.dao.UserDao;
 import com.example.exceptions.DaoException;
+import com.example.business.Room;
+import java.util.ArrayList;
+
 public class Controller {
 	
 	UserDao userdao = new UserDao();
@@ -32,4 +35,16 @@ public class Controller {
 			return false;
 		}
 	}//End login
+	
+	public ArrayList<Room> searchRoom(String checkInDate, String checkOutDate, String roomType){
+		ArrayList<Room> listRooms = null;
+		try {			
+			listRooms = roomDao.searchRoom(String checkInDate, String checkOutDate, String roomType)
+		} 
+		catch (DaoException e) {
+			e.printStackTrace();
+		}
+		
+		return listRooms;
+	}
 }
