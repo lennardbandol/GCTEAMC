@@ -4,9 +4,9 @@ public class Room {
 	
 	private String roomNo = null;
 	private String roomType = null;
-	private Boolean isSmoking = null;
+	private String isSmoking = null;
 	
-	public void room(String roomNo, String roomType, Boolean isSmoking){
+	public Room(String roomNo, String roomType, String isSmoking){
 		this.roomNo = roomNo;
 		this.roomType = roomType;
 		this.isSmoking = isSmoking;
@@ -18,7 +18,7 @@ public class Room {
 	public String getRoomType(){
 		return roomType;
 	}
-	public Boolean getIsSmoking(){
+	public String getIsSmoking(){
 		return isSmoking;
 	}
 }

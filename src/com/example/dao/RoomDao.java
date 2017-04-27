@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class RoomDao extends Dao {
 
-	public ArrayList<Room> searchRoom(String checkInDate, String checkOutDate, String roomType){
-		ArrayList<Room> listRooms = null;
+	public ArrayList<Room> searchRoom(String checkInDate, String checkOutDate, String roomType) throws DaoException{
+		ArrayList<Room> roomList = new ArrayList<Room>();
 		Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -28,16 +28,20 @@ public class RoomDao extends Dao {
             
             while (rs.next()) {
             	//Add all room data to room object then add to array list.
-            	String No = null;
-            	String Type = null;
-            	Boolean isSmoking = null;
+            	String no = null;
+            	String type = null;
+            	String isSmoking = null;
             	
-                String pWord = rs.getString("password");
-
+                no = rs.getString("roomId");				//TODO:
+                type = rs.getString("type");				//Change according to
+                isSmoking = rs.getString("isSmoking");	//database attributes
+                
+                Room room = new Room(no,type,isSmoking);
+                roomList.add(room);
             }
         } 
         catch (SQLException e) {
-            throw new DaoException("login: " + e.getMessage());    
+            throw new DaoException("room search: " + e.getMessage());    
         } 
         finally {
             try {
@@ -52,10 +56,9 @@ public class RoomDao extends Dao {
                 }
             }//end try 
             catch (SQLException e) {
-                throw new DaoException("login: " + e.getMessage());
+                throw new DaoException("room search: " + e.getMessage());
             }//end catch
         }//end finally
-		
-		return listRooms;
+        return roomList;
 	}
 }
