@@ -71,11 +71,19 @@ public class FrontController extends HttpServlet {
 		case "searchRoom":
 			forwardToJsp = mainUi.searchRoom(request, response);
 			break;
-		
-		case "getRoom":
-			forwardToJsp = mainUi.getRoom(request, response);
+			
+		case "removeRoom":
+			forwardToJsp = mainUi.removeRoom(request, response);
 			break;
-	
+			
+		case "addRoom":
+			forwardToJsp = mainUi.addRoom(request,response);
+			break;
+			
+		case "ammendRoom":
+			forwardToJsp = mainUi.ammendRoom(request, response);
+			break;
+		
 		default: 
 			forwardToJsp = "/errorPage.jsp";
 			break;
