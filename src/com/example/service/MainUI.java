@@ -101,6 +101,18 @@ public class MainUI {
 		forwardToJsp = "/homepage.html";
 		return forwardToJsp;
 	}
+	
+	public String searchRoom(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";	
+		String checkInDate = request.getParameter("checkInDate");		//TODO:
+		String checkOutDate = request.getParameter("checkOutDate");		//Change according to front end
+		String roomType = request.getParameter("roomType");
+		System.out.printf("regDOB: %s",regDOB);
+		controller.serachRoom(checkInDate, checkOutDate, roomType);
+		forwardToJsp = "/homepage.html";
+		return forwardToJsp;
+	}
 }
 
 >>>>>>> branch 'master' of https://github.com/AndrewKLeech/GCTEAMC

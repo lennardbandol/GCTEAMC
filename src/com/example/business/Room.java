@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.example.business;
 
 import java.util.ArrayList;
@@ -23,3 +24,29 @@ public class Room {
 		this.price=price;
 	}
 }
+=======
+package com.example.business;
+
+public class Room {
+	
+	private String roomNo = null;
+	private String roomType = null;
+	private String isSmoking = null;
+	
+	public Room(String roomNo, String roomType, String isSmoking){
+		this.roomNo = roomNo;
+		this.roomType = roomType;
+		this.isSmoking = isSmoking;
+	}
+	
+	public String getRoomNo(){
+		return roomNo;
+	}
+	public String getRoomType(){
+		return roomType;
+	}
+	public String getIsSmoking(){
+		return isSmoking;
+	}
+}
+>>>>>>> 449c644f9b12a4add793758ff66233fd7fe24dcc
