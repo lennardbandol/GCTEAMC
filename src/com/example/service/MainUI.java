@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.example.service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -101,6 +101,5 @@ public class MainUI {
 		forwardToJsp = "/homepage.html";
 		return forwardToJsp;
 	}
+	
 }
-
->>>>>>> branch 'master' of https://github.com/AndrewKLeech/GCTEAMC
