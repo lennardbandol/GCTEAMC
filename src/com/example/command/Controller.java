@@ -28,6 +28,17 @@ public class Controller {
 		return true;
 	}//End logout
 	
+	public boolean register(String regUsername, String regPassword, String regConfirmPassword, String registerEmail, String regDOB, String regContactNumber){
+		try {			
+			userdao.register(regUsername, regPassword, regConfirmPassword, registerEmail, regDOB, regContactNumber);
+			return true;
+		} 
+		catch (DaoException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}//End register
+	
 	public ArrayList<Room> getRoom(String type,boolean smoking, float priceMin,float priceMax, int noOfPeople)
 	{
 		try{

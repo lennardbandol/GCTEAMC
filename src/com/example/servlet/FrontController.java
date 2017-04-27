@@ -61,21 +61,23 @@ public class FrontController extends HttpServlet {
 			break;
 			
 		case "logout":
-			System.out.println("it works");
 			forwardToJsp = mainUi.logout(request, response);
 			break;
 			
 		case "register":
-			System.out.println("register");
-			
+			forwardToJsp = mainUi.register(request, response);
 			break;
 		
+		case "getRoom":
+			forwardToJsp = mainUi.getRoom(request, response);
+			break;
+	
 		default: 
-			//forwardToJsp = "/errorPage.jsp";
+			forwardToJsp = "/errorPage.jsp";
 			break;
 		}
 		
-		//forwardToPage(request, response, forwardToJsp);
+		forwardToPage(request, response, forwardToJsp);
 	}
 	
 	/**

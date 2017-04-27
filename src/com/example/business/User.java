@@ -2,9 +2,9 @@ package com.example.business;
 
 public class User {
 
-	private String uName;
-	private String fName;
-	private String lName;
+	protected String uName;
+	protected String fName;
+	protected String lName;
 	
 	public User(String uName,String fName,String lName)
 	{
