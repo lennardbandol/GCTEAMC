@@ -1,3 +1,4 @@
+
 package com.example.service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,5 +42,48 @@ public class MainUI {
 		forwardToJsp = "/homepage.html";
 		return forwardToJsp;
 	}
-}
+	
+	public String searchRoom(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";	
+		String checkInDate = request.getParameter("checkInDate");		//TODO:
+		String checkOutDate = request.getParameter("checkOutDate");		//Change according to front end
+		String roomType = request.getParameter("roomType");
+		System.out.printf("regDOB: %s",regDOB);
+		controller.searchRoom(checkInDate, checkOutDate, roomType);
+		forwardToJsp = "/homepage.html";
+		return forwardToJsp;
+	}
 
+	public String removeRoom(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";	
+		String roomNo = request.getParameter("roomNo");
+		controller.removeRoom(roomNo);
+		forwardToJsp = "/homepage.html";
+		return forwardToJsp;
+	}
+	public String addRoom(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";	
+		String roomNo = request.getParameter("roomNo");
+		String bedType = request.getParameter("bedType");
+		String smoking = request.getParameter("smoking");
+		String price = request.getParameter("price");
+		controller.addRoom(roomNo,bedType,smoking,price);
+		forwardToJsp = "/homepage.html";
+		return forwardToJsp;
+	}
+
+	public String ammendRoom(HttpServletRequest request, HttpServletResponse repsonse){
+		Controller controller = new Controller();
+		String forwardToJsp = "";	
+		String roomNo = request.getParameter("roomNo");
+		String bedType = request.getParameter("bedType");
+		String smoking = request.getParameter("smoking");
+		String price = request.getParameter("price");
+		controller.ammendRoom(roomNo,bedType,smoking,price);
+		forwardToJsp = "/homepage.html";
+		return forwardToJsp;
+	}
+}

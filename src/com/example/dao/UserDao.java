@@ -26,18 +26,10 @@ public class UserDao extends Dao {
             
             while (rs.next()) {
                 String pWord = rs.getString("password");
-                System.out.println(password);
-                System.out.println(pWord);
                 if (pWord.equals(password)) {
                 	//Password matches
                 	success = true;
-                	System.out.println("works match");
                 }
-                else
-                {
-                	System.out.println("works match fails");
-                }
-
             }
         } 
         catch (SQLException e) {

@@ -59,8 +59,10 @@ public class FrontController extends HttpServlet {
 		
 		switch (action) {
 		case "login":
+
 			HttpSession session = request.getSession();
 			//session.setAttribute("username" username);
+
 			forwardToJsp = mainUi.login(request, response);
 			break;
 			
@@ -70,6 +72,22 @@ public class FrontController extends HttpServlet {
 			
 		case "register":
 			forwardToJsp = mainUi.register(request, response);
+			break;
+			
+		case "searchRoom":
+			forwardToJsp = mainUi.searchRoom(request, response);
+			break;
+			
+		case "removeRoom":
+			forwardToJsp = mainUi.removeRoom(request, response);
+			break;
+			
+		case "addRoom":
+			forwardToJsp = mainUi.addRoom(request,response);
+			break;
+			
+		case "ammendRoom":
+			forwardToJsp = mainUi.ammendRoom(request, response);
 			break;
 		
 		default: 
