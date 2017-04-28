@@ -59,13 +59,12 @@ public class FrontController extends HttpServlet {
 		
 		switch (action) {
 		case "login":
-			System.out.println("working front");
+			HttpSession session = request.getSession();
+			//session.setAttribute("username" username);
 			forwardToJsp = mainUi.login(request, response);
 			break;
 			
 		case "logout":
-			HttpSession session = request.getSession();
-			session.setAttribute("username" username);
 			forwardToJsp = mainUi.logout(request, response);
 			break;
 			
